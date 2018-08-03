@@ -45,6 +45,18 @@ server.listen(8080,()=>{
 - ctx.request.url(ctx.url)
 - ctx.request.method(ctx.method)
 - ctx.request.headers(ctx.headers)
+
+
+const Koa = require("koa")
+const server = new Koa()
+server.use((context,next)=>{
+  console.log(context.request.url);
+  console.log(context.request.method);
+  console.log(context.request.headers);
+})
+server.listen(8080,()=>{
+  console.log("the local server is running on port 8080");
+})
 ```
 
 # response 对象
@@ -52,4 +64,16 @@ server.listen(8080,()=>{
 - ctx.response.set(ctx.set)  __函数:参数key,val__
 - ctx.response.status(ctx.status)
 - ctx.response.body(ctx.body)  
+
+
+const Koa = require("koa")
+const server = new Koa()
+server.use((context,next)=>{
+  console.log(context.response.set);
+  console.log(context.response.status);
+  console.log(context.response.body);
+})
+server.listen(8080,()=>{
+  console.log("the local server is running on port 8080");
+})
 ```
