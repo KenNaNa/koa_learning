@@ -24,7 +24,7 @@ let server = new koa()
 
 
 //处理响应
-server.use((context)=>{
+server.use((context,next)=>{
   context.body = "koa is ok";
 })
 
@@ -32,4 +32,24 @@ server.use((context)=>{
 server.listen(8080,()=>{
   console.log("The local server is running on port 8080");
 })
+```
+
+
+# context 上下文对象
+> 该对象类似于原生 http 中的 req 和 res
+
+# next 调用下一个中间件
+
+# request 对象
+```
+- ctx.request.url(ctx.url)
+- ctx.request.method(ctx.method)
+- ctx.request.headers(ctx.headers)
+```
+
+# response 对象
+```
+- ctx.response.set(ctx.set)  __函数:参数key,val__
+- ctx.response.status(ctx.status)
+- ctx.response.body(ctx.body)  
 ```
