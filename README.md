@@ -109,4 +109,8 @@ app.use(async(ctx)=>{
   }
 
 })
+
+app.listen(8080,()=>{
+  console.log("The local server is running on port 8080");
+})
 ```
