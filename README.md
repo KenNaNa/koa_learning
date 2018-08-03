@@ -174,3 +174,14 @@ app.listen(8080,()=>{
   console.log("The local server is running on port 8080");
 })
 ```
+
+
+# koa-static 处理静态资源
+```
+const koaStatic = require('koa-static')
+```
+
+# koa-art-template 模板
+```
+const template =  require("koa-art-template")
+```
