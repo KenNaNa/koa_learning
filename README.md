@@ -114,3 +114,11 @@ app.listen(8080,()=>{
   console.log("The local server is running on port 8080");
 })
 ```
+
+# 这里的 app.listen(...) 方法只是以下方法的语法糖
+```
+const http = require('http');
+const Koa = require('koa');
+const app = new Koa();
+http.createServer(app.callback()).listen(3000);
+```
