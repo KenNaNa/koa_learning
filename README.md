@@ -122,3 +122,29 @@ const Koa = require('koa');
 const app = new Koa();
 http.createServer(app.callback()).listen(3000);
 ```
+
+# 这意味着您可以将同一个应用程序同时作为 HTTP 和 HTTPS 或多个地址
+```
+const http = require('http');
+const https = require('https');
+const Koa = require('koa');
+const app = new Koa();
+http.createServer(app.callback()).listen(3000);
+https.createServer(app.callback()).listen(3001);
+```
+
+# koa 错误处理
+>默认情况下，将所有错误输出到 stderr，除非 app.silent 为 true。 
+当 err.status 是 404 或 err.expose 是 true 时默认错误处理程序也不会输出错误。 
+要执行自定义错误处理逻辑，如集中式日志记录，您可以添加一个 “error” 事件侦听器：
+```
+app.on('error', err => {
+  log.error('server error', err)
+});
+```
+>如果 req/res 期间出现错误，并且 _无法_ 响应客户端，Context实例仍然被传递
+```
+app.on('error', (err, ctx) => {
+  log.error('server error', err, ctx)
+});
+```
