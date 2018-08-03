@@ -70,7 +70,7 @@ const Koa = require("koa")
 const server = new Koa()
 server.use((context,next)=>{
   console.log(context.response.set("myKey","myValue"));
-  console.log(context.response.status(200));
+  console.log(context.response.status=200);
   console.log(context.response.body="<p>Hello</p>");
 })
 server.listen(8080,()=>{
