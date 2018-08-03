@@ -179,6 +179,11 @@ app.listen(8080,()=>{
 # koa-static 处理静态资源
 ```
 const koaStatic = require('koa-static')
+const path = require('path')
+const koa = require('koa')
+const app = new koa()
+
+app.use(koaStatic(path.resolve('./public)))
 ```
 
 # koa-art-template 模板
