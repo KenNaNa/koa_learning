@@ -183,5 +183,21 @@ const koaStatic = require('koa-static')
 
 # koa-art-template 模板
 ```
-const template =  require("koa-art-template")
+const render =  require("koa-art-template")
+const path = require('path')
+const koa = require('koa')
+const app = new koa()
+render(app,{
+  root:path.join(__dirname,'view'),
+  extname:'.art',
+  debug:process.env.NODE_ENV != 'production'
+})
+app.use(aysnc (ctx)=>{
+  await ctx.render('user')
+})
+
+app.listen(8080,()=>{
+  console.log("The local server is running on port 8080");
+})
+
 ```
