@@ -105,7 +105,7 @@ app.use(async(ctx)=>{
     console.log("hello")
     let data  = await asyncFile()
     console.log(data.toString())
-    ctx.body = data;
+    ctx.body = data.toString();
   }
 
 })
