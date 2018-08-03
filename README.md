@@ -4,6 +4,10 @@ koa 框架学习
 # es6 学习
 https://babel.bootcss.com/learn-es2015/
 
+# node.js 学习博客
+
+http://blog.fens.me/series-nodejs/
+
 # koa 简介
 >Koa 是一个新的 web 框架，由 Express 幕后的原班人马打造， 致力于成为 web 应用和 API 开发领域中的一个更小、更富有表现力、更健壮的基石。
 通过利用 async 函数，Koa 帮你丢弃回调函数，并有力地增强错误处理。 
@@ -75,5 +79,34 @@ server.use((context,next)=>{
 })
 server.listen(8080,()=>{
   console.log("the local server is running on port 8080");
+})
+```
+
+# async + await === promise
+```
+const fs = require("fs")
+const Koa = require("koa")
+const app == new Koa()
+function asyncFile(){
+    return new Promise((resolve,reject)=>{
+      fs.readFile("./index.html",(err,data)=>{
+        if(err){
+          reject(err)
+          return 
+        }else{
+          resolve(data)
+        }
+
+      })
+    })
+}
+app.use(async(ctx)=>{
+  if(ctx.url==='/'){
+    console.log("hello")
+    let data  = await asyncFile()
+    console.log(data.toString())
+    ctx.body = data;
+  }
+
 })
 ```
