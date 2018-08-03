@@ -69,9 +69,9 @@ server.listen(8080,()=>{
 const Koa = require("koa")
 const server = new Koa()
 server.use((context,next)=>{
-  console.log(context.response.set);
-  console.log(context.response.status);
-  console.log(context.response.body);
+  console.log(context.response.set("myKey","myValue"));
+  console.log(context.response.status(200));
+  console.log(context.response.body="<p>Hello</p>");
 })
 server.listen(8080,()=>{
   console.log("the local server is running on port 8080");
