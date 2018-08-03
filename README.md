@@ -148,3 +148,29 @@ app.on('error', (err, ctx) => {
   log.error('server error', err, ctx)
 });
 ```
+
+# 中间件 koa-bodyparser
+```
+const bodyparser = require("koa-bodyparser")
+```
+
+# koa-router 路由中间件
+```
+const koa = require('koa')
+const app = new koa();
+const Router = require('koa-router')
+const router = new Router()
+router.get('/',async (ctx)=>{
+  ctx.body = "首页";
+})
+
+router.post('/post',async (ctx)=>{
+  ctx.body = ctx.request.body;
+})
+
+app.use(router.routes())
+
+app.listen(8080,()=>{
+  console.log("The local server is running on port 8080");
+})
+```
