@@ -324,3 +324,78 @@ socket.on('disconnect', function(){});
 
 ```
 
+# socket 服务器端
+```
+const Koa = require( 'koa' )
+const IO = require( 'koa-socket' )
+ 
+const app = new Koa()
+const io = new IO()
+ 
+app.use( ... )
+ 
+io.attach( app )
+ 
+io.on( 'join', ( ctx, data ) => {
+  console.log( 'join event fired', data )
+})
+ 
+app.listen( process.env.PORT || 3000 )
+```
+
+
+```
+const Koa = require( 'koa' )
+const IO = require( 'koa-socket' )
+ 
+const app = new Koa()
+const io = new IO()
+ 
+// Attach the socket to the application
+io.attach( app )
+ 
+// Socket is now available as app.io if you prefer
+app.io.on( event, eventHandler )
+ 
+// The raw socket.io instance is attached as app._io if you need it
+app._io.on( 'connection', sock => {
+  // ...
+})
+ 
+// app.listen is mapped to app.server.listen, so you can just do:
+app.listen( process.env.PORT || 3000 )
+ 
+// *If* you had manually attached an `app.server` yourself, you should do:
+app.server.listen( process.env.PORT || 3000 )
+```
+
+```
+const Koa = require( 'koa' )
+const IO = require( 'koa-socket' )
+const co = require( 'co' )
+ 
+const app = new Koa()
+const io = new IO()
+ 
+app.use( ... )
+ 
+io.use( co.wrap( function *( ctx, next ) {
+  let start = new Date()
+  yield next()
+  console.log( `response time: ${ new Date() - start }ms` )
+}))
+ 
+io.use( ... );
+ 
+io.on( 'message', ( ctx, data ) => {
+  console.log( `message: ${ data }` )
+})
+ 
+io.attach( app )
+app.listen( 3000 );
+```
+
+```
+
+```
+
