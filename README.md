@@ -297,3 +297,30 @@ io.on('connection', function(){ /* … */ });
 server.listen(3000);
 ```
 
+# socket.io-client 客户端
+```
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  var socket = io('http://localhost');
+  socket.on('connect', function(){});
+  socket.on('event', function(data){});
+  socket.on('disconnect', function(){});
+</script> 
+// with ES6 import
+import io from 'socket.io-client';
+ 
+const socket = io('http://localhost');
+```
+
+
+```
+Node.JS (server-side usage)
+Add socket.io-client to your package.json and then:
+
+var socket = require('socket.io-client')('http://localhost');
+socket.on('connect', function(){});
+socket.on('event', function(data){});
+socket.on('disconnect', function(){});
+
+```
+
