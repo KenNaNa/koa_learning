@@ -254,3 +254,46 @@ console.log('listening on port 3000');
 ```
 
 ```
+
+# soket.io 实时通信
+```
+io.on('connection', function(socket){
+  socket.emit('request', /* */); // emit an event to the socket
+  io.emit('broadcast', /* */); // emit an event to all connected sockets
+  socket.on('reply', function(){ /* */ }); // listen to the event
+});
+```
+
+
+```
+var server = require('http').createServer();
+var io = require('socket.io')(server);
+io.on('connection', function(client){
+  client.on('event', function(data){});
+  client.on('disconnect', function(){});
+});
+server.listen(3000);
+```
+
+```
+var io = require('socket.io')();
+io.on('connection', function(client){});
+io.listen(3000);
+```
+
+```
+var app = require('express')();
+var server = require('http').createServer(app);
+var io = require('socket.io')(server);
+io.on('connection', function(){ /* … */ });
+server.listen(3000);
+```
+
+```
+var app = require('koa')();
+var server = require('http').createServer(app.callback());
+var io = require('socket.io')(server);
+io.on('connection', function(){ /* … */ });
+server.listen(3000);
+```
+
