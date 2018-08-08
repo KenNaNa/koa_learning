@@ -1,5 +1,12 @@
 # koa_learning
 koa 框架学习
+# 面向切片编程
+
+http://bubkoo.com/2014/05/08/intro-to-aspect-oriented-programming/
+
+http://www.alloyteam.com/2013/08/yong-aop-gai-shan-javascript-dai-ma/
+
+http://know.cujojs.com/tutorials/aop/intro-to-aspect-oriented-programming
 
 # es6 学习
 https://babel.bootcss.com/learn-es2015/
