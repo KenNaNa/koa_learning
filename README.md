@@ -112,6 +112,7 @@ Promise.resolve(middleware1(context, async() => {
 // "end"
 // "context = { data: [1, 2, 3, 4, 5, 6]}"
 ```
+```
 源码元素解析
 生命周期就是 Promise.resolve 的嵌套
 中间件就是 middleware1、middleware2和middleware3
@@ -124,7 +125,7 @@ middleware3 前置操作 action 003
 middleware3 后置操作 action 004
 middleware2 后置操作 action 005
 middleware1 后置操作 action 006
-
+```
 ```
         +----------------------------------------------------------------------------------+
         |                                                                                  |
