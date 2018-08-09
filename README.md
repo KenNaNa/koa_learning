@@ -149,3 +149,37 @@ middleware1 后置操作 action 006
         |          +-----------------------------------------------------------+           |
         +----------------------------------------------------------------------------------+
 ```
+
+
+
+HTTP切面流程
+```
+任人打扮的HTTP
+从HTTP请求从拿到想要的数据
+从拿到数据处理想要处理的事情
+给处理后的结果
+```
+<img src="https://user-images.githubusercontent.com/8216630/42408394-9db3991e-81fe-11e8-8a32-940941ad4480.jpeg">
+
+```
+HTTP生命过程
+http请求
+路由操作
+权限处理
+数据安全
+业务操作
+数据操作
+书查查询
+http响应
+响应操作
+```
+<img src="https://user-images.githubusercontent.com/8216630/42408395-9efe19ca-81fe-11e8-9a6e-3dc5b1896dca.jpeg">
+
+```
+Koa.js的HTTP旅程
+请求
+中间件
+响应
+```
+
+<img src="https://user-images.githubusercontent.com/8216630/42408401-ada72fca-81fe-11e8-9f05-c5a93bb15670.jpeg">
